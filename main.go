@@ -25,6 +25,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/businesses", h.businessesIndexHandler)
+	router.HandleFunc("/businesses/{businessId:[0-9]+}", h.businessesShowHandler)
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 	//h.printBusinessesHandler()
@@ -44,6 +45,18 @@ func (h *DBHandler) businessesIndexHandler(w http.ResponseWriter, r *http.Reques
 	h.db.Limit(perPage).Offset(offset).Find(&businesses)
 
 	if err := json.NewEncoder(w).Encode(businesses); err != nil {
+		panic(err)
+	}
+}
+
+func (h *DBHandler) businessesShowHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	businessId := vars["businessId"]
+
+	var business Business
+	h.db.First(&business, businessId);
+
+	if err := json.NewEncoder(w).Encode(business); err != nil {
 		panic(err)
 	}
 }
