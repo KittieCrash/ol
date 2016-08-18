@@ -18,3 +18,7 @@ type Business struct {
 }
 
 type Businesses []Business
+
+func EmptyBusiness() Business {
+	return Business{}
+}

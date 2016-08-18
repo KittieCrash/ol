@@ -6,21 +6,16 @@ import (
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	"github.com/unrolled/render"
 )
 
 type DBHandler struct {
-	db *gorm.DB
+	db 	*gorm.DB
+	r 	*render.Render
 }
 
 func main() {
 	h := InitDB()
-
-/*
-	router := mux.NewRouter()
-	router.HandleFunc("/businesses", h.BusinessesIndexHandler)
-	router.HandleFunc("/businesses/{businessId:[0-9]+}", h.BusinessesShowHandler)
-	*/
-
 	router := NewRouter(&h)
 
 	log.Fatal(http.ListenAndServe(":8080", router))
@@ -31,9 +26,11 @@ func InitDB() DBHandler {
 	if err != nil {
 		panic("Failed to connect to the database!")
 	}
-
 	db.AutoMigrate(&Business{})
-	h := DBHandler{db: db}
+
+	r := render.New(render.Options{})
+	h := DBHandler{db: db, r: r}
+
 	return h
 }
 
