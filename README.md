@@ -26,7 +26,7 @@ Now we'll need to clone our repository into our Go workspace:
 ```sh
 $ mkdir $GOPATH/src/github.com/lpszBuffer
 $ cd $GOPATH/src/github.com/lpszBuffer
-$ git clone https://github.com/lpszBuffer
+$ git clone https://github.com/lpszBuffer/ol.git
 ```
 
 Finally, we need to get ol's dependencies and install the application:
