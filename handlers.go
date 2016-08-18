@@ -14,6 +14,11 @@ func (h *DBHandler) BusinessesIndexHandler(w http.ResponseWriter, r *http.Reques
 
 	h.db.Limit(perPage).Offset(offset).Find(&businesses)
 	
+	if len(businesses) == 0 {
+		h.r.Text(w, http.StatusBadRequest, "400 Bad Request")
+		return
+	}
+
 	ppr := PrettyPaginationResponse{
 		map[string]int{"page": page, "per_page": perPage}, 
 		businesses}
@@ -28,6 +33,11 @@ func (h *DBHandler) BusinessesShowHandler(w http.ResponseWriter, r *http.Request
 	var business Business
 	h.db.First(&business, businessId)
 	
+	if business == EmptyBusiness() {
+		h.r.Text(w, http.StatusBadRequest, "400 Bad Request")
+		return
+	}
+
 	h.r.JSON(w, http.StatusOK, business)
 }
 
