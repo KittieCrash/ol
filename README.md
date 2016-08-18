@@ -7,8 +7,14 @@
 ### Installation
 
 Ol requires Go to run.
-You will need to follow on of the guides to [install Go for Linux](https://golang.org/doc/install?download=go1.7.linux-amd64.tar.gz)
+You will need to follow Golang's instructions to [install Go for Linux](https://golang.org/doc/install?download=go1.7.linux-amd64.tar.gz)
 
+If you don't want to follow Golang's guide, I have copied the relevant commands here:
+```sh
+$ sudo tar -C /usr/local -xzf go1.7.linux-amd64.tar.gz
+$ export PATH=$PATH:/usr/local/go/bin
+$ export GOPATH=$HOME/work
+```
 
 After you have Go installed, we'll want to make sure you have a few dependencies!
 ```sh
@@ -23,7 +29,7 @@ $ cd $GOPATH/src/github.com/lpszBuffer
 $ git clone https://github.com/lpszBuffer
 ```
 
-Finally, we need to get ol's dependencies and install the application
+Finally, we need to get ol's dependencies and install the application:
 ```sh
 $ go get github.com/lpszBuffer/ol
 $ go install github.com/lpszBuffer/ol
