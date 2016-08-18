@@ -24,7 +24,7 @@ $ sudo apt-get install g++
 ```
 Now we'll need to clone our repository into our Go workspace:
 ```sh
-$ mkdir $GOPATH/src/github.com/lpszBuffer
+$ mkdir -p $GOPATH/src/github.com/lpszBuffer
 $ cd $GOPATH/src/github.com/lpszBuffer
 $ git clone https://github.com/lpszBuffer/ol.git
 ```
