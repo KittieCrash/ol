@@ -1,23 +1,29 @@
 # Ol - REST API Project
 
-> Ol was created as part of a challenge to create a REST API to serve business data in the JSON format.
+> Ol was created as part of a challenge to create a REST API to serve business data in the JSON format. It is intended to be built on a Linux system.
 > This is the first project I've created in Go, and I had a great time learning the language's features
 > and strengths while working in it. I look forward to future opportunities where I may work in Go again.
-
-### Attributions
-
-Ol uses a couple of fantastic open ource projects to work properly:
-* [gorm](https://github.com/jinzhu/gorm) - ORM for the GoLang platform
-* [mux](https://github.com/gorilla/mux) - Routing library for the GoLang platform
 
 ### Installation
 
 Ol requires Go to run.
-You will need to follow on of the guides to either:
-* [Install Go for Linux](https://golang.org/doc/install?download=go1.7.linux-amd64.tar.gz)
-* [Install Go for OS X](https://golang.org/doc/install?download=go1.7.darwin-amd64.pkg)
+You will need to follow on of the guides to [install Go for Linux](https://golang.org/doc/install?download=go1.7.linux-amd64.tar.gz)
 
-After you have Go installed, obtaining and installing the ol project is a snap!
+
+After you have Go installed, we'll want to make sure you have a few dependencies!
+```sh
+$ sudo apt-get install git
+$ sudo apt-get install sqlite3
+$ sudo apt-get install g++
+```
+Now we'll need to clone our repository into our Go workspace:
+```sh
+$ mkdir $GOPATH/src/github.com/lpszBuffer
+$ cd $GOPATH/src/github.com/lpszBuffer
+$ git clone https://github.com/lpszBuffer
+```
+
+Finally, we need to get ol's dependencies and install the application
 ```sh
 $ go get github.com/lpszBuffer/ol
 $ go install github.com/lpszBuffer/ol
@@ -130,3 +136,9 @@ Response:
    "created_at":"2014-12-05T03:55:49Z"
 }
 ```
+
+### Attributions
+
+Ol uses a couple of fantastic open source projects to work properly:
+* [gorm](https://github.com/jinzhu/gorm) - ORM for the GoLang platform
+* [mux](https://github.com/gorilla/mux) - Routing library for the GoLang platform
