@@ -6,8 +6,8 @@ import(
 	"strconv"
 )
 
-type PrettyPaginationResponse struct {
-	PaginationData map[string]int `json:"metadata"`
+type PaginationResponse struct {
+	PaginationData map[string]int `json:"_metadata"`
 	Businesses []Business `json:"businesses"`
 }
 

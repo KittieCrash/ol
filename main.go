@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -18,6 +19,7 @@ func main() {
 	h := InitDB()
 	router := NewRouter(&h)
 
+	fmt.Printf("Server listening on Port 8080...\n")
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
 

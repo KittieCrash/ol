@@ -38,10 +38,28 @@ func CreateRoutes(h *DBHandler) Routes{
 			h.BusinessesIndexHandler,
 		},
 		Route {
+			"BusinessesCreate",
+			"POST",
+			"/businesses",
+			h.BusinessesCreateHandler,
+		},
+		Route {
 			"BusinessesShow",
 			"GET",
 			"/businesses/{businessId:[0-9]+}",
 			h.BusinessesShowHandler,
+		},		
+		Route {
+			"BusinessesUpdate",
+			"PUT",
+			"/businesses/{businessId:[0-9]+}",
+			h.BusinessesUpdateHandler,
+		},
+		Route {
+			"BusinessesDelete",
+			"DELETE",
+			"/businesses/{businessId:[0-9]+}",
+			h.BusinessesDeleteHandler,
 		},
 	}
 
